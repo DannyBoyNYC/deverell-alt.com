@@ -16,7 +16,6 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site
       ? this.props.data.site.siteMetadata.title
       : undefined;
-    console.log('siteTitle: ', siteTitle);
 
     return (
       <Layout location={this.props.location}>
