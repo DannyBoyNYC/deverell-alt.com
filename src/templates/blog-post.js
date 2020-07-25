@@ -1,53 +1,46 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
-// import get from 'lodash/get';
+import useSiteMetadata from '../hooks/use-sitemetadata';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
 import heroStyles from '../components/hero.module.css';
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    // const post = get(this.props, 'data.contentfulBlogPost');
-    const post = this.props.data.contentfulBlogPost;
+const BlogPostTemplate = ({ location, data }) => {
+  const { title, description } = useSiteMetadata();
+  const post = data.contentfulBlogPost;
 
-    // const siteTitle = get(this.props, 'data.site.siteMetadata.title');
-    const siteTitle = this.props.data.site
-      ? this.props.data.site.siteMetadata.title
-      : undefined;
-
-    return (
-      <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
-              {post.publishDate}
-            </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
-          </div>
+  return (
+    <Layout location={location}>
+      <div style={{ background: '#fff' }}>
+        <Helmet title={`${post.title} | ${title}`} />
+        <div className={heroStyles.hero}>
+          <Img
+            className={heroStyles.heroImage}
+            alt={post.title}
+            fluid={post.heroImage.fluid}
+          />
         </div>
-      </Layout>
-    );
-  }
-}
+        <div className="wrapper">
+          <h1 className="section-headline">{post.title}</h1>
+          <p
+            style={{
+              display: 'block',
+            }}
+          >
+            {post.publishDate}
+          </p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: post.body.childMarkdownRemark.html,
+            }}
+          />
+        </div>
+      </div>
+    </Layout>
+  );
+};
 
 export default BlogPostTemplate;
 
