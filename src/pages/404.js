@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const fourOfour = () => {
+const fourOfour = () => {
   return <div>page not found</div>;
 };
+
+export default fourOfour;
