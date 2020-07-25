@@ -10,7 +10,6 @@ const RootIndex = ({ location, data }) => {
   const { title, description } = useSiteMetadata();
   const posts = data.allContentfulBlogPost.edges;
   const [author] = data.allContentfulPerson.edges;
-  console.log('author ', author);
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
