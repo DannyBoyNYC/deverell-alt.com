@@ -25,7 +25,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Deverell.com',
+    title: 'William Deverell',
+    description:
+      'The official website of William Deverell, Winner of the Dashiell Hammett Award for Literary Excellence in North American Crime Writing',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
