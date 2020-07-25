@@ -1,16 +1,22 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Helmet } from 'react-helmet'
-import get from 'lodash/get'
-import Img from 'gatsby-image'
-import Layout from '../components/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
+// import get from 'lodash/get';
+import Img from 'gatsby-image';
+import Layout from '../components/layout';
 
-import heroStyles from '../components/hero.module.css'
+import heroStyles from '../components/hero.module.css';
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    // const post = get(this.props, 'data.contentfulBlogPost');
+    const post = this.props.data.contentfulBlogPost;
+
+    // const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+    const siteTitle = this.props.data.site
+      ? this.props.data.site.siteMetadata.title
+      : undefined;
+    console.log('siteTitle: ', siteTitle);
 
     return (
       <Layout location={this.props.location}>
@@ -40,11 +46,11 @@ class BlogPostTemplate extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -63,4 +69,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
