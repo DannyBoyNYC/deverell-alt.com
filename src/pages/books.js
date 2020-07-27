@@ -21,6 +21,7 @@ const Books = ({ location, data }) => {
                   <h2>{node.title}</h2>
                   <p>{node.yearOfPublication}</p>
                   <p>{node.body.body}</p>
+                  <p>{node.longDescription.longDescription}</p>
                   {/* <ArticlePreview article={node} /> */}
                 </li>
               );
@@ -42,6 +43,9 @@ export const pageQuery = graphql`
           slug
           body {
             body
+          }
+          longDescription {
+            longDescription
           }
         }
       }
