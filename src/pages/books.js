@@ -3,21 +3,8 @@ import { graphql } from 'gatsby';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 import Layout from '../components/layout';
 import styles from './blog.module.css';
-
-// import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
-// const Bold = ({ children }) => <span className="bold">{children}</span>;
-// const Text = ({ children }) => <p className="align-center">{children}</p>;
-
-// const options = {
-//   renderMark: {
-//     [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
-//   },
-//   renderNode: {
-//     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-//   },
-// };
+import BookPreview from '../components/book-preview';
+import Img from 'gatsby-image';
 
 const Books = ({ location, data }) => {
   const { title, description } = useSiteMetadata();
@@ -33,25 +20,22 @@ const Books = ({ location, data }) => {
             {books.map(({ node }) => {
               return (
                 <li key={node.slug}>
-                  <h2>{node.title}</h2>
-                  <img
-                    src={node.coverImage.file.url}
+                  {/* <img
+                    src={`${node.coverImage.file.url}?w=300`}
                     alt="testi"
                     style={{ maxWidth: '240px' }}
                   />
-                  <p>Published: {node.yearOfPublication}</p>
-
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: node.body.childMarkdownRemark.html,
-                    }}
-                  ></div>
-                  <p>
-                    <a href={node.purchasing} target="_blank">
-                      Buy it
-                    </a>
-                  </p>
-                  {/* <ArticlePreview article={node} /> */}
+                  <Img
+                    fluid={node.coverImage.fluid}
+                    alt="wow"
+                    style={{ height: '200px' }}
+                  />
+                  <Img
+                    fluid={node.coverImage.fixed}
+                    alt="wee"
+                    style={{ height: '200px' }}
+                  />*/}
+                  <BookPreview book={node} />
                 </li>
               );
             })}
@@ -68,11 +52,24 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
           coverImage {
             file {
               url
               fileName
               contentType
+            }
+            fluid {
+              src
+              srcSet
+            }
+            fixed {
+              src
+              srcSet
             }
           }
           yearOfPublication
@@ -86,7 +83,30 @@ export const pageQuery = graphql`
         }
       }
     }
+    # allContentfulAsset {
+    #   edges {
+    #     node {
+    #       fixed {
+    #         srcSet
+    #       }
+    #     }
+    #   }
+    # }
   }
 `;
+
+// export const imageQuery = graphql`
+// query AllImages {
+//   allContentfulAsset {
+//     edges {
+//       node {
+//         fixed {
+//           srcSet
+//         }
+//       }
+//     }
+//   }
+// }
+// `;
 
 export default Books;
