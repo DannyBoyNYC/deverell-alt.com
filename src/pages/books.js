@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import useSiteMetadata from '../hooks/use-sitemetadata';
+// import useSiteMetadata from '../hooks/use-sitemetadata';
 import Layout from '../components/layout';
 import styles from './blog.module.css';
 import BookPreview from '../components/book-preview';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 
 const Books = ({ location, data }) => {
-  const { title, description } = useSiteMetadata();
+  // const { title, description } = useSiteMetadata();
   const books = data.allContentfulBook.edges;
   console.log(' ', books);
   return (
@@ -83,30 +83,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    # allContentfulAsset {
-    #   edges {
-    #     node {
-    #       fixed {
-    #         srcSet
-    #       }
-    #     }
-    #   }
-    # }
   }
 `;
-
-// export const imageQuery = graphql`
-// query AllImages {
-//   allContentfulAsset {
-//     edges {
-//       node {
-//         fixed {
-//           srcSet
-//         }
-//       }
-//     }
-//   }
-// }
-// `;
 
 export default Books;

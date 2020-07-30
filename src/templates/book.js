@@ -7,33 +7,33 @@ import Layout from '../components/layout';
 
 import heroStyles from '../components/hero.module.css';
 
-const BlogPostTemplate = ({ location, data }) => {
+const BookTemplate = ({ location, data }) => {
   const { title } = useSiteMetadata();
-  const post = data.contentfulBlogPost;
+  const book = data.contentfulBook;
 
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${title}`} />
+        <Helmet title={`${book.title} | ${title}`} />
         <div className={heroStyles.hero}>
           <Img
-            className={heroStyles.heroImage}
-            alt={post.title}
-            fluid={post.heroImage.fluid}
+            fluid={book.coverImage.fluid}
+            alt="wow"
+            style={{ height: '200px' }}
           />
         </div>
         <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
+          <h1 className="section-headline">{book.title}</h1>
           <p
             style={{
               display: 'block',
             }}
           >
-            {post.publishDate}
+            {book.yearOfPublication}
           </p>
           <div
             dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
+              __html: book.body.childMarkdownRemark.html,
             }}
           />
         </div>
@@ -42,16 +42,17 @@ const BlogPostTemplate = ({ location, data }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default BookTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+  query BookBySlug($slug: String!) {
+    contentfulBook(slug: { eq: $slug }) {
+      id
       title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid
+      yearOfPublication
+      coverImage {
+        fluid {
+          srcSet
         }
       }
       body {
@@ -59,6 +60,7 @@ export const pageQuery = graphql`
           html
         }
       }
+      purchasing
     }
   }
 `;

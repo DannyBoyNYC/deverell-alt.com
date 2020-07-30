@@ -12,7 +12,10 @@ const BookPreview = ({ book }) => (
         alt="wee"
         style={{ height: '200px', maxWidth: '240px' }}
       />
-      <h2>{book.title}</h2>
+      {/* <h2>{book.title}</h2> */}
+      <h3 className={styles.previewTitle}>
+        <Link to={`/blog/${book.slug}`}>{book.title}</Link>
+      </h3>
       <p>Published: {book.yearOfPublication}</p>
       <div
         dangerouslySetInnerHTML={{
@@ -25,9 +28,9 @@ const BookPreview = ({ book }) => (
         }}
       ></div> */}
       <p>
-        <a href={book.purchasing} target="_blank">
+        {/* <a href={book.purchasing} target="_blank" rel="noreferrer">
           Buy itw
-        </a>
+        </a> */}
       </p>
     </li>
   </div>
