@@ -3,13 +3,13 @@ import { graphql } from 'gatsby';
 // import useSiteMetadata from '../hooks/use-sitemetadata';
 import Layout from '../components/layout';
 import styles from './blog.module.css';
-import BookPreview from '../components/book-preview';
+import BookPreview from '../components/previews/BookPreview';
 // import Img from 'gatsby-image';
 
 const Books = ({ location, data }) => {
   // const { title, description } = useSiteMetadata();
   const books = data.allContentfulBook.edges;
-  console.log(' ', books);
+  // console.log(' ', books);
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>

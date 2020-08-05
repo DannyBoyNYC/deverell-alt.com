@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/article-preview';
+import ArticlePreview from '../components/previews/PostPreview';
 
 const RootIndex = ({ location, data }) => {
   const { title, description } = useSiteMetadata();
@@ -20,7 +20,7 @@ const RootIndex = ({ location, data }) => {
         </Helmet>
         <Hero data={author.node} />
         <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
+          <h2 className="section-headline">Recent posts</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (

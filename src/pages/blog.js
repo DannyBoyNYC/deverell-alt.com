@@ -4,7 +4,7 @@ import useSiteMetadata from '../hooks/use-sitemetadata';
 import { Helmet } from 'react-helmet';
 import styles from './blog.module.css';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/article-preview';
+import ArticlePreview from '../components/previews/PostPreview';
 
 const BlogIndex = ({ location, data }) => {
   const { title } = useSiteMetadata();
@@ -16,7 +16,7 @@ const BlogIndex = ({ location, data }) => {
         <Helmet title={title} />
         <div className={styles.hero}>Blog</div>
         <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
+          <h2 className="section-headline">Recent posts</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (

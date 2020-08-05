@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-import styles from './article-preview.module.css';
+import styles from './preview.module.css';
 
-export default ({ article }) => (
+const PostPreview = ({ article }) => (
   <div className={styles.preview}>
     <Img alt="test" fluid={article.heroImage.fluid} />
     <h3 className={styles.previewTitle}>
@@ -18,3 +18,5 @@ export default ({ article }) => (
     />
   </div>
 );
+
+export default PostPreview;
