@@ -20,11 +20,13 @@ const BookPreview = ({ book }) => (
         __html: book.description.childMarkdownRemark.html,
       }}
     ></div>
-    <p>
-      <a href={book.purchasing} target="_blank" rel="noreferrer">
-        Buy it
-      </a>
-    </p>
+    <ul>
+      <li>
+        <a href={book.whereToBuy} target="_blank" rel="noreferrer">
+          Buy it
+        </a>
+      </li>
+    </ul>
   </div>
 );
 export default BookPreview;
