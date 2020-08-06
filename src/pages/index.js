@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 import Hero from '../components/hero';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/previews/PostPreview';
+import PostPreview from '../components/previews/PostPreview';
 
 const RootIndex = ({ location, data }) => {
   const { title, description } = useSiteMetadata();
@@ -25,7 +25,7 @@ const RootIndex = ({ location, data }) => {
             {posts.map(({ node }) => {
               return (
                 <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                  <PostPreview post={node} />
                 </li>
               );
             })}

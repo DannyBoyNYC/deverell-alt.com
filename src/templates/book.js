@@ -51,6 +51,7 @@ export const pageQuery = graphql`
       title
       yearOfPublication
       coverImage {
+        # src
         fluid(maxWidth: 1180) {
           ...GatsbyContentfulFluid
         }

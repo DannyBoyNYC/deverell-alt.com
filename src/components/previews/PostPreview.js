@@ -4,16 +4,16 @@ import Img from 'gatsby-image';
 
 import styles from './preview.module.css';
 
-const PostPreview = ({ article }) => (
-  <div className={styles.preview}>
-    <Img alt="test" fluid={article.heroImage.fluid} />
+const PostPreview = ({ post }) => (
+  <div className={styles.preview} data-test="tester">
+    <Img alt="test" fluid={post.heroImage.fluid} />
     <h3 className={styles.previewTitle}>
-      <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
     </h3>
-    <small>{article.publishDate}</small>
+    <small>{post.publishDate}</small>
     <p
       dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
+        __html: post.description.childMarkdownRemark.html,
       }}
     />
   </div>

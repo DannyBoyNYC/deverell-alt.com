@@ -8,7 +8,7 @@ const BookPreview = ({ book }) => (
   <div className={styles.preview}>
     <Img
       alt="test"
-      fluid={book.coverImage.fixed}
+      fluid={book.coverImage.fluid}
       style={{ height: '200px', maxWidth: '240px' }}
     />
     <h3 className={styles.previewTitle}>

@@ -15,7 +15,7 @@ const Books = ({ location, data }) => {
       <div style={{ background: '#fff' }}>
         <div className={styles.hero}>Books</div>
         <div className="wrapper">
-          <h2 className="section-headline">Publications</h2>
+          {/* <h2 className="section-headline">Publications</h2> */}
           <ul className="article-list">
             {books.map(({ node }) => {
               return (

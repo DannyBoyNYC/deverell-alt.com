@@ -16,12 +16,12 @@ const BlogIndex = ({ location, data }) => {
         <Helmet title={title} />
         <div className={styles.hero}>Blog</div>
         <div className="wrapper">
-          <h2 className="section-headline">Recent posts</h2>
+          {/* <h2 className="section-headline">Recent posts</h2> */}
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
                 <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                  <ArticlePreview post={node} />
                 </li>
               );
             })}
