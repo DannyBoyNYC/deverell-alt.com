@@ -9,7 +9,7 @@ const BookPreview = ({ book }) => (
     <Img
       alt="test"
       fluid={book.coverImage.fluid}
-      style={{ height: '200px', maxWidth: '240px' }}
+      style={{ height: '320px', maxWidth: '240px' }}
     />
     <h3 className={styles.previewTitle}>
       <Link to={`/books/${book.slug}`}>{book.title}</Link>
