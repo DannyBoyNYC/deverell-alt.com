@@ -12,7 +12,7 @@ const Books = ({ location, data }) => {
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
-        <Helmet title={title} />
+        <Helmet title={title} description={description} />
         <div className={styles.hero}>Books</div>
         <div className="wrapper">
           <ul className="article-list">

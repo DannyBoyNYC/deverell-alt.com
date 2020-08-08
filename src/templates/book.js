@@ -5,6 +5,8 @@ import useSiteMetadata from '../hooks/use-sitemetadata';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 import heroStyles from '../components/hero.module.css';
 
 const BookTemplate = ({ location, data }) => {
@@ -36,14 +38,8 @@ const BookTemplate = ({ location, data }) => {
               __html: book.body.childMarkdownRemark.html,
             }}
           />
-          <ul>
-            {book.whereToBuy.map((where) => (
-              <li>
-                <a href={where}> {where}</a>
-              </li>
-            ))}
-          </ul>
-          {/* <p>{purchasing}</p> */}
+          <h3>Where to buy</h3>
+          {documentToReactComponents(book.purchasing.json)}
         </div>
       </div>
     </Layout>
@@ -68,9 +64,8 @@ export const pageQuery = graphql`
           html
         }
       }
-      whereToBuy
       purchasing {
-        
+        json
       }
     }
   }
