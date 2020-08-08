@@ -36,6 +36,14 @@ const BookTemplate = ({ location, data }) => {
               __html: book.body.childMarkdownRemark.html,
             }}
           />
+          <ul>
+            {book.whereToBuy.map((where) => (
+              <li>
+                <a href={where}> {where}</a>
+              </li>
+            ))}
+          </ul>
+          {/* <p>{purchasing}</p> */}
         </div>
       </div>
     </Layout>
@@ -51,7 +59,6 @@ export const pageQuery = graphql`
       title
       yearOfPublication
       coverImage {
-        # src
         fluid(maxWidth: 760) {
           ...GatsbyContentfulFluid
         }
@@ -62,6 +69,9 @@ export const pageQuery = graphql`
         }
       }
       whereToBuy
+      purchasing {
+        
+      }
     }
   }
 `;
