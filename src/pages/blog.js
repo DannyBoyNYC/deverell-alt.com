@@ -4,7 +4,7 @@ import useSiteMetadata from '../hooks/use-sitemetadata';
 import { Helmet } from 'react-helmet';
 import styles from './blog.module.css';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/previews/PostPreview';
+import PostPreview from '../components/previews/PostPreview';
 
 const BlogIndex = ({ location, data }) => {
   const { title } = useSiteMetadata();
@@ -21,7 +21,7 @@ const BlogIndex = ({ location, data }) => {
             {posts.map(({ node }) => {
               return (
                 <li key={node.slug}>
-                  <ArticlePreview post={node} />
+                  <PostPreview post={node} />
                 </li>
               );
             })}

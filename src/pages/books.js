@@ -42,9 +42,8 @@ export const pageQuery = graphql`
             }
           }
           coverImage {
-            fluid {
-              src
-              srcSet
+            fluid(maxWidth: 240, maxHeight: 320, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid
             }
           }
           yearOfPublication

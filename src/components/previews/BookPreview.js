@@ -6,11 +6,7 @@ import styles from './preview.module.css';
 
 const BookPreview = ({ book }) => (
   <div className={styles.preview}>
-    <Img
-      alt="test"
-      fluid={book.coverImage.fluid}
-      style={{ height: '320px', maxWidth: '240px' }}
-    />
+    <Img alt="test" fluid={book.coverImage.fluid} />
     <h3 className={styles.previewTitle}>
       <Link to={`/books/${book.slug}`}>{book.title}</Link>
     </h3>
@@ -20,13 +16,6 @@ const BookPreview = ({ book }) => (
         __html: book.description.childMarkdownRemark.html,
       }}
     ></div>
-    <ul>
-      <li>
-        <a href={book.whereToBuy} target="_blank" rel="noreferrer">
-          Buy it
-        </a>
-      </li>
-    </ul>
   </div>
 );
 export default BookPreview;

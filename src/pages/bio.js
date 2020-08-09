@@ -25,6 +25,7 @@ const Bio = ({ location, data }) => {
           <img
             style={{ float: 'left', maxWidth: 400, marginRight: 32 }}
             src={node.data.target.fields.file['en-US'].url}
+            alt="William deverell"
           />
         );
       },
