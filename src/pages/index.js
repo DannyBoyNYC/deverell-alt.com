@@ -64,9 +64,9 @@ export const pageQuery = graphql`
       edges {
         node {
           name
-          shortBio {
-            shortBio
-          }
+          # shortBio {
+          #   shortBio
+          # }
           title
           heroImage: image {
             fluid(

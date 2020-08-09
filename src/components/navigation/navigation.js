@@ -14,6 +14,9 @@ export default () => (
       <li className={styles.navigationItem}>
         <Link to="/books/">Books</Link>
       </li>
+      <li className={styles.navigationItem}>
+        <Link to="/bio/">Biography</Link>
+      </li>
     </ul>
   </nav>
 );

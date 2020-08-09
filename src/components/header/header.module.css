@@ -1,0 +1,16 @@
+.container {
+  background-color: #1c1c1c;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  flex-grow: 4;
+}

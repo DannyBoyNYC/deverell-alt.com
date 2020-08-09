@@ -10,8 +10,8 @@ body {
   font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
-  background: #eee;
+  color: #373f49;
+  background: #444;
   margin: 0;
 }
 
@@ -20,10 +20,14 @@ img {
   width: 100%;
 }
 
-h1,
+h1 {
+  font-size: 1.875em;
+  font-weight: normal;
+}
+
 h2,
 h3 {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: normal;
 }
 
@@ -67,6 +71,6 @@ a {
   list-style: none;
 }
 
-  .list-inline li {
-    display: inline-block;
-  }
+.list-inline li {
+  display: inline-block;
+}
