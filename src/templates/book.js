@@ -5,7 +5,7 @@ import useSiteMetadata from '../hooks/use-sitemetadata';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
-// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import heroStyles from '../components/hero.module.css';
 
@@ -39,7 +39,7 @@ const BookTemplate = ({ location, data }) => {
             }}
           />
           <h3>Where to buy</h3>
-          {/* {documentToReactComponents(book.purchasing.json)} */}
+          {documentToReactComponents(book.purchasing.json)}
         </div>
       </div>
     </Layout>

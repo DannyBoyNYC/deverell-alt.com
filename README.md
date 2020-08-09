@@ -16,7 +16,6 @@ query All {
         html
       }
     }
-    whereToBuy
     purchasing {
       json
     }
