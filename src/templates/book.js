@@ -7,8 +7,6 @@ import Layout from '../components/layout';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import heroStyles from '../components/hero.module.css';
-
 const BookTemplate = ({ location, data }) => {
   const { title } = useSiteMetadata();
   const book = data.contentfulBook;
@@ -17,14 +15,13 @@ const BookTemplate = ({ location, data }) => {
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
         <Helmet title={`${book.title} | ${title}`} />
-        <div className={heroStyles.hero}>
+
+        <div className="wrapper">
           <Img
             fluid={book.coverImage.fluid}
             alt="wow"
             style={{ height: '200px' }}
           />
-        </div>
-        <div className="wrapper">
           <h1 className="section-headline">{book.title}</h1>
           <p
             style={{

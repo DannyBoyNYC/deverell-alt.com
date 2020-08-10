@@ -6,7 +6,12 @@ import styles from './preview.module.css';
 
 const BookPreview = ({ book }) => (
   <div className={styles.preview}>
-    <Img alt="test" fluid={book.coverImage.fluid} />
+    <Img
+      className="book"
+      style={{ maxWidth: '240px', maxHeight: '320px' }}
+      alt="test"
+      fluid={book.coverImage.fluid}
+    />
     <h3 className={styles.previewTitle}>
       <Link to={`/books/${book.slug}`}>{book.title}</Link>
     </h3>

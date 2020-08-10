@@ -11,7 +11,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 const Bio = ({ location, data }) => {
   const { title } = useSiteMetadata();
 
-  const Bold = ({ children }) => <span className="bold">{children}</span>;
+  const Bold = ({ children }) => (
+    <strong>
+      <em>{children}</em>
+    </strong>
+  );
   const Text = ({ children }) => <p className="foobar">{children}</p>;
 
   const options = {

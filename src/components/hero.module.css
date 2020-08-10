@@ -17,9 +17,9 @@
 .heroDetails {
   position: absolute;
   background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
+  border-radius: 4px;
   left: 50%;
-  bottom: 12px;
+  bottom: 24px;
   backdrop-filter: saturate(30%) blur(3px);
   transform: translate(-50%, 0);
   font-size: 14px;
@@ -30,6 +30,12 @@
   .heroDetails {
     font-size: 16px;
   }
+}
+
+.heroDetails p {
+  font-size: 1.25em;
+  font-family: 'Playfair Display', serif;
+  /* font-style: italic; */
 }
 
 @media (min-width: 1000px) {
